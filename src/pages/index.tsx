@@ -5,7 +5,7 @@ interface Props {
   links: { name: string; url: string }[];
   projects: { name: string; url: string }[];
 }
-export default function Home({ links, projects, skills }: Props) {
+export default function Home({ links, projects }: Props) {
   return (
     <>
       <Head>
