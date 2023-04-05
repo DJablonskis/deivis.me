@@ -20,8 +20,15 @@ import {
 } from "react-icons/tb";
 import { SiAdobecreativecloud } from "react-icons/si";
 import { SiJquery } from "react-icons/si";
+import { icons } from "react-icons/lib";
 
-function MainSwiper({ links, projects }) {
+function MainSwiper({
+  links,
+  projects,
+}: {
+  links: { url: string; name: string }[];
+  projects: { url: string; name: string }[];
+}) {
   const skills = [
     {
       icon: TbBrandTailwind,
@@ -93,7 +100,7 @@ function MainSwiper({ links, projects }) {
         <div className=" text-center m-auto">
           <div className="max-w-prose mx-auto text-justify leading-normal text-sm sm:text-lg sm:px-4">
             <p className="mb-2">
-              I'm Deividas Jablonskis, a versatile web developer, computer
+              I&apos;m Deividas Jablonskis, a versatile web developer, computer
               science student, and technology enthusiast with a strong passion
               for problem-solving and a dedication to lifelong learning.
             </p>
@@ -101,17 +108,18 @@ function MainSwiper({ links, projects }) {
               With extensive experience in luxury hospitality, I gained
               exceptional customer service skills and learned to collaborate
               effectively with teams and clients. With a dedication to
-              excellence and a drive to succeed, I'm excited to bring my skills
-              and expertise to any project or team.
+              excellence and a drive to succeed, I&apos;m excited to bring my
+              skills and expertise to any project or team.
             </p>
             <p className="mb-8">
-              If you're looking for a highly motivated and dedicated web
-              developer with a strong foundation in computer science, let's
+              If you&apos;re looking for a highly motivated and dedicated web
+              developer with a strong foundation in computer science, let&apos;s
               connect and discuss how I can contribute to your success.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row justify-center sm: justify-evenly items-center">
               {links.map((link) => (
                 <Link
+                  key={link.url}
                   className="text-indigo-950 font-bold hover:text-indigo-700 duration-100 ease-linear pl-1 pr-1 hover:pl-2 hover:pr-0"
                   href={link.url}
                 >
@@ -134,7 +142,7 @@ function MainSwiper({ links, projects }) {
         </h2>
         <ul className=" text-center sm:my-10 flex flex-col sm:flex-row sm:flex-wrap sm:justify-evenly justify-between gap-6 sm:gap-12 max-w-lg mx-auto ">
           {projects.map((p) => (
-            <li>
+            <li key={p.url}>
               <Link
                 className="relative mb-4 text-2xl sm:text-3xl font-bold first-letter:first-line:text-indigo-950 hover:text-indigo-700 duration-100 ease-linear pl-1 pr-1 hover:pl-2 hover:pr-0"
                 href={p.url}
@@ -151,7 +159,10 @@ function MainSwiper({ links, projects }) {
         </h2>
         <ul className="text-center grid gap-4  sm:gap-6 grid-cols-3 sm:grid-cols-4 w-100 max-w-xl m-auto sm:mb-10">
           {skills.map(({ name, icon: Icon }) => (
-            <li className="flex flex-col items-center justify-center">
+            <li
+              key={name}
+              className="flex flex-col items-center justify-center"
+            >
               <Icon className="text-5xl sm:text-6xl text-violet-600" />
               <span className="mt-2 text-sm font-semibold">{name}</span>
             </li>
